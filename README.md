@@ -2,6 +2,7 @@
 ### Booking Form for Hotel websites and Portals which uses [BookOnlineNow.net](https://www.bookonlinenow.net) web services
 ___
 ####Developed by Vasilis Kosmas -  **[Web Dynamic](https://www.webdynamic.gr)**
+*Hotels Edition Demo* > https://vasiliskosmas.github.io/BookOnlineNowForms/hotels/book-hotel.html
 ___
 
 To use it, simply edit `book-*.html` and change configurable values in **Hotel configuration parameters**
