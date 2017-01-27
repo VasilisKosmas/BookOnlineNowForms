@@ -4,7 +4,7 @@ ___
 ####Developed by Vasilis Kosmas -  **[Web Dynamic](https://www.webdynamic.gr)**
 ___
 
-To use it, simply edit `book.html` and change configurable values in **Hotel configuration parameters**
+To use it, simply edit `book-*.html` and change configurable values in **Hotel configuration parameters**
 
 ######For example
 
@@ -15,8 +15,9 @@ var hotel_ID = 'demo2'; //Bookonlinenow Hotel ID
 var checkin_init = 4; // How many days from today calendar initiates
 var checkout_day = 10; // Minimum stay (number of nights)
 var form_dateformat = 'dd-mm-yy'; // Date format (is used only to website form)
-// Compatible Date formats at https://jqueryui.com/resources/demos/datepicker/date-formats.html
+var target_window = '_blank'; // Use '_blank' for opening in new tab or '_self' for same tab
 
+// Date formats at https://jqueryui.com/resources/demos/datepicker/date-formats.html
 // End of Hotel configuration parameters
 ```
 ---

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+		<meta name="author" content="Vasilis Kosmas - Developed by Webdynamic.gr">
+		<link rel="stylesheet" type="text/css" href="css/book.css">
+		<!-- Check more ui themes for calendar at http://code.jquery.com/ui/ and replace accordingly the below line -->
+		<link href="https://code.jquery.com/ui/1.7.3/themes/smoothness/jquery-ui.css" media="screen" rel="stylesheet" type="text/css">
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+	    <script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+	    <script type="text/javascript" src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+		
+		<!--[if lt IE 9]>
+		    <script>document.createElement('section')</script>
+		    <style type="text/css">
+		        .holder {
+		            position: relative;
+		            z-index: 10000;
+		        }
+		        .datepicker {
+		            display: block;
+		        }
+		    </style>
+		<![endif]-->
+
+		</head>
+
+		<body>
+		<!-- Bookonlinenow.net [Hotel Edition] v2.2 by Webdynamic.gr - Check https://github.com/VasilisKosmas/BookOnlineNowForms -->
+
+			<div class="container">
+				<div id="hotelbooking" class="main">
+					<form class="book-col-form" action="" method="post" name="BookOnline" target="_blank" id="BookOnline">			
+						<div class="book-col-column">							
+							<label for="DD1">Check-in</label>
+		  					<input id="arrival" class="datepicker" name="arrival" value="" type="text" autofocuss>
+			  			</div>
+
+		  				<div class="book-col-column">
+		  					<label for="DD2">Check-out</label>
+		  					<input id="departure" class="datepicker" name="departure" value="" type="text" autofocuss> 
+		  				</div>
+
+		  				<div class="book-col-column">
+	 	  					<label for="rooms">Rooms</label>
+		  					<select id="rooms" name="rooms" >
+			  					<option value="1">1</option>
+			  					<option value="2">2</option>
+			  					<option value="3">3</option>
+			  					<option value="4">4</option>
+		  					</select>
+		  				</div>
+
+						<div class="book-col-column">
+		  					<label for="adults">Adults</label>
+		  					<select id="adults" name="adults">
+			  					<option value="1">1 </option>
+			  					<option value="2" selected="selected">2 </option>
+			  					<option value="3">3 </option>
+		  					</select>
+		  				</div>
+
+						<div class="book-col-column">
+		  					<label for="kids">Children</label>
+		  					<select id="kids" name="kids">
+			  					<option value="0">0 </option>
+			  					<option value="1">1 </option>
+		  					</select>
+			  			</div>
+
+			  			<div class="book-col-column">
+							<label for="promo">Promo</label>
+							<input type="text" name="promo" id="promo"/>
+			  			</div>
+
+						<div class="book-col-column">
+			  				<div class="book-col-submit-wrap">			
+			  					<input class="book-col-submit" type="submit" value="Check Availability" />
+			  				</div>
+			  				    <div id="container"></div>
+								<input type="hidden" name="Page" value="19">
+								<input type="hidden" name="lan_id" value="">
+								<input type="hidden" name="kid1" value="1">
+								<input type="hidden" name="kid2" value="-1">
+								<input type="hidden" name="kid3" value="-1">
+								<input type="hidden" name="extra" value="0">
+								<input type="hidden" name="cot" value="0">
+								<input type="hidden" name="src" value="">
+						</div>
+					</form>
+				</div>
+			</div>
+
+
+			<!-- Empty form for generating _ga code -->
+			<!-- **DO NOT EDIT** -->
+			<form method="POST" action="" style="display: none" id="completed_form">
+				<button type="submit" id="completed_form_submit"></button>
+			</form>
+			<!-- end Empty form for generating _ga code -->
+
+			<script>
+
+				// Hotel configuration parameters
+
+				var hotel_ID = 'demo2'; //Bookonlinenow Hotel ID
+				var checkin_init = 4; // How many days from today calendar initiates
+				var checkout_day = 10; // Minimum stay (number of nights)
+				var form_dateformat = 'dd-mm-yy'; // Date format (is used only to website form)
+				var target_window = '_blank'; // Use '_blank' for opening in new tab or '_self' for same tab
+				
+				// Date formats at https://jqueryui.com/resources/demos/datepicker/date-formats.html
+				// End of Hotel configuration parameters
+
+				// DO NOT EDIT BELOW
+
+				// Set empty form action attribute for generating new _ga next time
+	            $('#completed_form').attr( "action", "https://"+ hotel_ID +".book-onlinenow.net?"  );
+
+			    $(function() {
+			    	var newDate = new Date();
+	                newDate.setDate( new Date().getDate() + checkin_init );
+			        $('#hotelbooking #arrival').datepicker({
+			            dateFormat: form_dateformat,
+			            beforeShowDay: function(date) {
+
+			                var currentDate = newDate;
+			                currentDate.setHours(0);
+			                currentDate.setMinutes(0);
+			                currentDate.setSeconds(0);
+			                currentDate.setMilliseconds(0);
+			                if (date >= currentDate) {
+			                    return [true, ''];
+			                }
+			                else {
+			                    return [false, ''];
+			                }
+			            },
+			            onSelect: function(dateText, inst) {
+			                var nextDay = $('#hotelbooking #arrival').datepicker('getDate');
+			                nextDay.setDate(nextDay.getDate() + checkout_day );
+			                var depart = $('#hotelbooking #departure').datepicker('getDate');
+			                $('#hotelbooking #departure').val($.datepicker.formatDate(form_dateformat, nextDay));
+			            }
+			        }).val($.datepicker.formatDate(form_dateformat, newDate));
+			        var nextDay = $('#hotelbooking #arrival').datepicker('getDate');
+			        nextDay.setDate(nextDay.getDate() + checkout_day);
+			        $('#hotelbooking #departure').datepicker({
+			            dateFormat: form_dateformat,
+			            beforeShowDay: function(date) {
+			                var nextDay = $('#hotelbooking #arrival').datepicker('getDate');
+			                nextDay.setDate(nextDay.getDate() + checkout_day );
+			                nextDay.setHours(0);
+			                nextDay.setMinutes(0);
+			                nextDay.setSeconds(0);
+			                nextDay.setMilliseconds(0);
+
+			                if (date >= nextDay) {
+			                    return [true, ''];
+			                }
+			                else {
+			                    return [false, ''];
+			                }
+			            }
+			        }).val($.datepicker.formatDate(form_dateformat, nextDay));
+
+			        $('#hotelbooking form').submit(function(e) {
+			        	
+			            e.preventDefault();
+			            var $this = $(this);
+			            var url = '';
+
+			            var values = {};
+			            $.each($this.serializeArray(), function(k, v) {
+			                values[v.name] = v.value;
+			            });
+
+			            if (values.hotel == -1) {
+			                url = '';
+			            }
+			            else {
+			                url = 'https://'+ hotel_ID +'.book-onlinenow.net?';
+			            }
+			            delete values.hotel;
+
+			            var arrivalDate = $('#arrival', $this).datepicker('getDate');
+			            var departureDate = $('#departure', $this).datepicker('getDate');
+			            values.arrival = $.datepicker.formatDate('dd/mm/yy', arrivalDate);
+			            values.departure = $.datepicker.formatDate('dd/mm/yy', departureDate);
+
+			            $.each(values, function(k, v) {
+			                if (v.length > 0) {
+			                    url += k + '=' + v + '&';
+			                }
+			            });
+			            
+			            url = url.substr(0, url.length-1);
+
+			            // submit empty form for generating _ga code on this action
+			            $('#completed_form_submit').click();
+
+			            // window redirection stop to empty form action
+			            window.stop();
+
+			            // get generated _ga code from this form action attribute
+			            var generated_ga = $('#completed_form').attr( "action" ).split("?");
+			            generated_ga = generated_ga[ generated_ga.length - 1];
+
+			            // concat _ga code to url
+			            url = url + generated_ga;
+			            // reset empty form action attribute for generating new _ga next time
+			            $('#completed_form').attr( "action", "https://"+ hotel_ID +".book-onlinenow.net?"  );
+
+			            var BookSearch = window.open(url, target_window);
+			        });
+			    });
+		</script>
+
+	</body>
+</html>
