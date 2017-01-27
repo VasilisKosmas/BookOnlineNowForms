@@ -1,4 +1,4 @@
-## BookOnlineNow Forms
+## BookOnlineNow Responsive Forms
 ### Booking Form for Hotel website and Hotel Portal which uses BookOnlineNow.net web services
 ___
 ####Developed by Vasilis Kosmas -  **[Web Dynamic](https://www.webdynamic.gr)**
