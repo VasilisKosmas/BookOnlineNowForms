@@ -19,7 +19,7 @@ var form_dateformat = 'dd-mm-yy'; // Date format only for booking form
 
 // End of Hotel configuration parameters
 ```
-
+---
 
 Version | Description
 ------------ | -------------
