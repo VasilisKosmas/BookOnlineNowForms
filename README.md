@@ -14,7 +14,8 @@ To use it, simply edit `book.html` and change configurable values in **Hotel con
 var hotel_ID = 'yourhotel'; //Bookonlinenow Hotel ID
 var checkin_init = 4; // How many days from today calendar initiates
 var checkout_day = 10; // Minimum stay (number of nights)
-var form_dateformat = 'dd-mm-yy'; // Date format only for booking form - Check https://jqueryui.com/resources/demos/datepicker/date-formats.html
+var form_dateformat = 'dd-mm-yy'; // Date format only for booking form
+// More formats at https://jqueryui.com/resources/demos/datepicker/date-formats.html
 // End of Hotel configuration parameters
 ```
 
