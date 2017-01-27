@@ -12,7 +12,7 @@ To use it, simply edit `book-*.html` and change configurable values in **Hotel c
 ```js
 // Hotel configuration parameters
 
-var hotel_ID = 'demo2'; //Bookonlinenow Hotel ID
+var hotel_ID = 'crystalvillas'; //Change to your Bookonlinenow Hotel ID
 var checkin_init = 4; // How many days from today calendar initiates
 var checkout_day = 10; // Minimum stay (number of nights)
 var form_dateformat = 'dd-mm-yy'; // Date format (is used only to website form)
