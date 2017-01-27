@@ -1,7 +1,7 @@
 ## BookOnlineNow Forms
-#### Booking Form for Hotel website and Hotel Portal which uses BookOnlineNow.net web services
+### Booking Form for Hotel website and Hotel Portal which uses BookOnlineNow.net web services
 ___
-#####Developed by Vasilis Kosmas -  **[Web Dynamic](https://www.webdynamic.gr)**
+####Developed by Vasilis Kosmas -  **[Web Dynamic](https://www.webdynamic.gr)**
 ___
 
 To use it, simply edit `book.html` and change configurable values in **Hotel configuration parameters**
@@ -19,8 +19,6 @@ var form_dateformat = 'dd-mm-yy'; // Dates format only for booking form: dd, M y
 // End of Hotel configuration parameters
 ```
 
-
-###### Versions
 
 Version | Description
 ------------ | -------------
