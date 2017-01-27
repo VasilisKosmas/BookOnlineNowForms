@@ -22,7 +22,7 @@ var target_window = '_blank'; // Use '_blank' for opening in new tab or '_self' 
 ```
 ---
 
-Version | Description
------------- | -------------
-2.2 | Configurable parameters section (Hotel & Portal)
-2.1 | Supports_ga paramaters (Hotel & Portal)
+Version | Description | Date
+------------ | ------------- | -------------
+2.2 | Configurable parameters section (Hotel & Portal) | 27-01-2017
+2.1 | Supports_ga paramaters (Hotel & Portal) | 17-01-2017
